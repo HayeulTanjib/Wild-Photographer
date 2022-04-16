@@ -5,6 +5,7 @@ import auth from '../../../Firebase/firebase.config';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Link, useNavigate } from 'react-router-dom';
+import SocialLogin from '../Login/SocialLogin/SocialLogin';
 
 const Register = () => {
     const [createUserWithEmailAndPassword, user, loading, error] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
@@ -82,6 +83,7 @@ const Register = () => {
                 {error ? <p className='text-danger'>{error.message}</p> : ""}
                 <ToastContainer autoClose={3000} />
             </Form>
+            <SocialLogin/>
         </div>
     );
 };
