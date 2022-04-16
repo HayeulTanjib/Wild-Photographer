@@ -19,6 +19,15 @@ body {
   transition: .3s ease-in-out;
 }
 
+.btn:focus {
+  outline: none;
+  box-shadow: none;
+  }
+  .btn{
+  box-shadow: none !important
+  }
+  
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
