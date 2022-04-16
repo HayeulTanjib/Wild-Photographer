@@ -7,6 +7,8 @@ import Header from './Components/Shared/Header/Header';
 import Footer from './Components/Shared/Footer/Footer';
 import Login from './Components/Authentication/Login/Login';
 import Register from './Components/Authentication/Register/Register';
+import RequireAuth from './RequireAuth/RequireAuth';
+
 
 
 
@@ -19,7 +21,12 @@ function App() {
         <Route path='/' element={<Home/>}></Route>
         <Route path='/about' element={<About/>}></Route>
         <Route path='/blog' element={<Blog/>}></Route>
-        <Route path='/checkout' element={<CheckOut/>}></Route>
+        <Route path='/checkout' element={
+        <RequireAuth>
+        <CheckOut/>
+        </RequireAuth>
+        }></Route>
+
         <Route path='/login' element={<Login/>}></Route>
         <Route path="/register" element={<Register/>}></Route>
       </Routes>

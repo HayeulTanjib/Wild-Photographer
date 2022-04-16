@@ -1,14 +1,20 @@
 import React, { useRef } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../Firebase/firebase.config';
 import SocialLogin from './SocialLogin/SocialLogin';
 
 const Login = () => {
 
     const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth);
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || "/";
+    if(user){
+        navigate(from, { replace: true });
+    }
 
     const emailRef = useRef('');
     const passwordRef = useRef(''); 
@@ -26,9 +32,7 @@ const Login = () => {
         passwordRef.current.value = "";
     }
 
-    if(user){
-        navigate('/');
-    }
+   
 
 
 
