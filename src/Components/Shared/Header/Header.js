@@ -22,7 +22,8 @@ const Header = () => {
                             <CustomLink to="/">Home</CustomLink>
                             <CustomLink to={'/checkout'}>CheckOut</CustomLink>
                             <CustomLink to={'/blog'}>Blog</CustomLink>
-                            <CustomLink to={'/About'}>About</CustomLink>
+                            <CustomLink to={'/about'}>About</CustomLink>
+                            <CustomLink to={'/contact'}>Contact</CustomLink>
 
                             {!user ? 
                             <>
