@@ -1,18 +1,26 @@
 import React from 'react';
-import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useSignInWithGoogle, useSignInWithFacebook, useSignInWithGithub } from 'react-firebase-hooks/auth';
 import { useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../../Firebase/firebase.config';
 import { FcGoogle } from 'react-icons/fc';
-import Loading from '../../../Shared/Loading/Loading';
+
 
 const SocialLogin = () => {
 
-    const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+    const [signInWithGoogle, googleuser, loading, error] = useSignInWithGoogle(auth);
+    const [signInWithFacebook, fbuser, fbloading, fberror] = useSignInWithFacebook(auth);
+    const [signInWithGithub, githubuser, githubloading, githuberror] = useSignInWithGithub(auth);
     const navigate = useNavigate();
     const location = useLocation();
 
     const from = location.state?.from?.pathname || "/";
-    if(user){
+    if(googleuser){
+        navigate(from, { replace: true });
+    }
+    if(fbuser){
+        navigate(from, { replace: true });
+    }
+    if(githubuser){
         navigate(from, { replace: true });
     }
     
@@ -27,7 +35,11 @@ const SocialLogin = () => {
             <>
             {error ? <p className='text-danger'>{error.message}</p> : "" }
             </>
-            <button className=' px-5 py-2 fw-bold border-primary btn btn-outline-warning' onClick={() => signInWithGoogle()}> <FcGoogle className='mx-2'/> Google</button>
+            <div>
+            <button className='btn btn-outline-dark px-5' onClick={() => signInWithGoogle()}> <FcGoogle className='mx-2'/> Google</button>
+            <button className='btn btn-outline-dark px-5' onClick={() => signInWithFacebook()}>  Facebook</button>
+            <button className='btn btn-outline-dark px-5' onClick={() => signInWithGithub()}>  Github</button>
+            </div>
         </div>
     );
 };
