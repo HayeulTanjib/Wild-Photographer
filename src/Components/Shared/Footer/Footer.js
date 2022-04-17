@@ -2,9 +2,8 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <div className='border'>
-            <h2>Footer</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea cupiditate at, molestias officia veritatis error laudantium ipsum ad quas porro velit nisi et eos sunt recusandae corrupti? In, odit fugiat?</p>
+        <div className='mt-5 p-2 bg-light text-center fw-bold'>
+        <p>&copy; Copyright: Johan - The Wild Photographer | {new Date().getFullYear()} </p>    
         </div>
     );
 };

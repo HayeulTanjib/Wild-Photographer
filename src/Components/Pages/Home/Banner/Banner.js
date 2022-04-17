@@ -10,7 +10,7 @@ const Banner = () => {
     };
 
     return (
-        <div className="container">
+        <div className="py-5">
             <Carousel activeIndex={index} onSelect={handleSelect}>
                 <Carousel.Item>
                     <img
@@ -20,8 +20,7 @@ const Banner = () => {
                     />
                     <Carousel.Caption>
                         <h3>Wild And Nature</h3>
-                        <p>“You don't need beautiful weather to enjoy the evening. You only need a beautiful heart.”
-                            ― Biju Karakkonam, Nature and Wildlife Photographer</p>
+                        <p>“ You only need a beautiful heart.”</p>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
@@ -46,7 +45,7 @@ const Banner = () => {
                     <Carousel.Caption>
                         <h3>Wild And Peace</h3>
                         <p>
-                        For me, Every day is Photography Day.
+                        "For me, Every day is Photography Day."
                         </p>
                     </Carousel.Caption>
                 </Carousel.Item>

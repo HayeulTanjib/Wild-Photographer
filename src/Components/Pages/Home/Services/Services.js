@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Card, Button, CardGroup } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const Services = () => {
@@ -14,16 +14,18 @@ const Services = () => {
 
 
     return (
-        <div className='row'>
-            <h1 className='text-center py-4'>Services</h1>
-            {
-                services.map(service => {
-                    const { name, img, price, description } = service;
+        <div>
+            <h1 className='text-center mt-5'>Services</h1>
+            <hr className='w-25 mx-auto mb-5' />
+            <div className='row mx-auto'>
+                {
+                    services.map(service => {
+                        const { name, img, price, description } = service;
 
-                    return (
-                        <div key={service.id} className="col-4 pb-5">
-                            
-                                <Card style={{ width: '22rem'}} className="shadow-sm">
+                        return (
+                            <div key={service.id} className="col-12 col-md-4 pb-5">
+
+                                <Card style={{ width: '22rem' }} className="shadow-sm">
                                     <Card.Img variant="top" className='img-thumbnail' src={img} />
                                     <Card.Body>
                                         <Card.Title>{name}</Card.Title>
@@ -36,12 +38,13 @@ const Services = () => {
                                 </Card>
 
                             </div>
-                        
-    );
-})
-            }
-</div>
-        
+
+                        );
+                    })
+                }
+            </div>
+        </div>
+
     )
 
 
