@@ -28,6 +28,10 @@ body {
   box-shadow: none !important
   }
   
+  ul li{
+    list-style: none;
+    line-height: 1.9rem;
+  }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
