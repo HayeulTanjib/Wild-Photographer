@@ -4,6 +4,8 @@ import { Container, Navbar, Nav } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
 import auth from '../../../Firebase/firebase.config';
+import CustomLink from './CustomLink/CustomLink';
+import { GrCamera } from 'react-icons/gr';
 
 const Header = () => {
     const [user] = useAuthState(auth);
@@ -12,19 +14,20 @@ const Header = () => {
         <div className='header'>
             <Navbar bg="light" expand="lg">
                 <Container>
-                    <Navbar.Brand><Link to="/" >Johan - The Wild Photographer</Link></Navbar.Brand>
+                    <Navbar.Brand><Link to="/" >Johan - The Wild Photographer <GrCamera/> </Link></Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="ms-auto">
-                            <Link to="/">Home</Link>
-                            <Link to={'/checkout'}>CheckOut</Link>
-                            <Link to={'/blog'}>Blog</Link>
-                            <Link to={'/About'}>About</Link>
+                            
+                            <CustomLink to="/">Home</CustomLink>
+                            <CustomLink to={'/checkout'}>CheckOut</CustomLink>
+                            <CustomLink to={'/blog'}>Blog</CustomLink>
+                            <CustomLink to={'/About'}>About</CustomLink>
 
                             {!user ? 
                             <>
-                            <Link to={'/login'}>Login</Link>
-                            <Link to={'/register'}>Register</Link>
+                            <CustomLink to={'/login'}>Login</CustomLink>
+                            <CustomLink to={'/register'}>Register</CustomLink>
                             </>
                             :
                             <>

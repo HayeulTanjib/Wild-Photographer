@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { MdAddAPhoto } from "react-icons/md";
 
 const Services = () => {
 
@@ -15,7 +16,7 @@ const Services = () => {
 
     return (
         <div>
-            <h1 className='text-center mt-5'>Services</h1>
+            <h1 className='text-center mt-5'>Services <MdAddAPhoto/></h1>
             <hr className='w-25 mx-auto mb-5' />
             <div className='row mx-auto'>
                 {

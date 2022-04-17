@@ -2,6 +2,8 @@ import React from 'react';
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../../Firebase/firebase.config';
+import { FcGoogle } from 'react-icons/fc';
+import Loading from '../../../Shared/Loading/Loading';
 
 const SocialLogin = () => {
 
@@ -13,6 +15,7 @@ const SocialLogin = () => {
     if(user){
         navigate(from, { replace: true });
     }
+    
  
     return (
         <div className='text-center'>
@@ -24,7 +27,7 @@ const SocialLogin = () => {
             <>
             {error ? <p className='text-danger'>{error.message}</p> : "" }
             </>
-            <button onClick={() => signInWithGoogle()}>Google</button>
+            <button className=' px-5 py-2 fw-bold border-primary btn btn-outline-warning' onClick={() => signInWithGoogle()}> <FcGoogle className='mx-2'/> Google</button>
         </div>
     );
 };

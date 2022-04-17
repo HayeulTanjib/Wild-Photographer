@@ -1,11 +1,12 @@
 import React from 'react';
 import { Accordion } from 'react-bootstrap';
+import { BsQuestionLg } from 'react-icons/bs';
 
 const Faq = () => {
 
     return (
         <div>
-            <h2 className='pt-5 text-center'>FAQ</h2>
+            <h2 className='pt-5 text-center'>FAQ <BsQuestionLg/></h2>
             <hr className='w-25 mx-auto' />
             <Accordion className='w-75 mx-auto py-3'>
                 <Accordion.Item eventKey="0">

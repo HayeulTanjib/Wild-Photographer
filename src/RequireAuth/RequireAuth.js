@@ -2,6 +2,7 @@ import React from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../Firebase/firebase.config';
+import Loading from '../Components/Shared/Loading/Loading';
 
 function RequireAuth({ children }) {
     
@@ -9,7 +10,7 @@ function RequireAuth({ children }) {
     const [user, loading] = useAuthState(auth)
 
     if(loading){
-       return console.log("loading");
+       return <Loading/>
     }
 
 if(!user){

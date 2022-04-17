@@ -9,9 +9,7 @@ import Login from './Components/Authentication/Login/Login';
 import Register from './Components/Authentication/Register/Register';
 import RequireAuth from './RequireAuth/RequireAuth';
 import NotFound from './Components/Pages/NotFound/NotFound';
-
-
-
+import Contact from './Components/Pages/Contact/Contact';
 
 
 function App() {
@@ -31,6 +29,7 @@ function App() {
 
         <Route path='/login' element={<Login/>}></Route>
         <Route path="/register" element={<Register/>}></Route>
+        <Route path='/contact' element={<Contact/>}></Route>
         <Route path='*' element={<NotFound/>}></Route>
       </Routes>
       </div>

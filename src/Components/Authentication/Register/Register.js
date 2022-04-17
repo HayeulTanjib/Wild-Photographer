@@ -47,7 +47,7 @@ const Register = () => {
 
 
     return (
-        <div className='w-50 mx-auto'>
+        <div className='w-50 mx-auto vh-100'>
             <legend className='text-center'>Registration</legend>
             <div>
                 <p className='text-center'>Already Member? <Button className='btn btn-info py-0'><Link className='text-decoration-none text-dark' to="/login">Login Here</Link> </Button></p>
