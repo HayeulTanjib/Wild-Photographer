@@ -34,7 +34,7 @@ const Services = () => {
                                         <Card.Text>
                                             {description}
                                         </Card.Text>
-                                        <Link className='btn btn-primary' to={'/checkout'}>Add to Cart</Link>
+                                        <Link className='btn btn-primary' to={'/checkout'}>Book Now</Link>
                                     </Card.Body>
                                 </Card>
 

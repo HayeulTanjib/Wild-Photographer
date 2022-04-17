@@ -2,7 +2,9 @@ import React from 'react';
 import { useSignInWithGoogle, useSignInWithFacebook, useSignInWithGithub } from 'react-firebase-hooks/auth';
 import { useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../../Firebase/firebase.config';
-import { FcGoogle } from 'react-icons/fc';
+import { ImGoogle3 } from 'react-icons/im';
+import { FaFacebook } from 'react-icons/fa';
+import { RiGithubFill } from 'react-icons/ri';
 
 
 const SocialLogin = () => {
@@ -26,7 +28,7 @@ const SocialLogin = () => {
     
  
     return (
-        <div className='text-center'>
+        <div className='text-center mb-5'>
             <div className='d-flex mt-3'>
                 <hr className='w-50' />
                 <p className='mx-2'>or</p>
@@ -35,10 +37,10 @@ const SocialLogin = () => {
             <>
             {error ? <p className='text-danger'>{error.message}</p> : "" }
             </>
-            <div>
-            <button className='btn btn-outline-dark px-5' onClick={() => signInWithGoogle()}> <FcGoogle className='mx-2'/> Google</button>
-            <button className='btn btn-outline-dark px-5' onClick={() => signInWithFacebook()}>  Facebook</button>
-            <button className='btn btn-outline-dark px-5' onClick={() => signInWithGithub()}>  Github</button>
+            <div className='d-flex gap-3 flex-column flex-md-row '>
+            <button className='btn btn-outline-dark px-5' onClick={() => signInWithGoogle()}> <ImGoogle3 className='mx-2'/> Google</button>
+            <button className='btn btn-outline-dark px-5' onClick={() => signInWithFacebook()}><FaFacebook className='mx-2'/>  Facebook</button>
+            <button className='btn btn-outline-dark px-5' onClick={() => signInWithGithub()}><RiGithubFill className='mx-2'/>  Github</button>
             </div>
         </div>
     );

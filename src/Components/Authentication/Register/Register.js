@@ -8,7 +8,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import SocialLogin from '../Login/SocialLogin/SocialLogin';
 
 const Register = () => {
-    const [createUserWithEmailAndPassword, user, loading, error] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+    const [createUserWithEmailAndPassword, user, error] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
     const [updateProfile] = useUpdateProfile(auth);
     const [accept, setAccept] = useState(false);
     const navigate = useNavigate()
@@ -28,10 +28,13 @@ const Register = () => {
         const password = passwordRef.current.value;
         const confirmPassword = confirmPassRef.current.value;
 
+
         if (password === confirmPassword) {
             await createUserWithEmailAndPassword(email, password)
             await updateProfile({ displayName: name })
-            navigate('/');
+            if(user){
+                navigate('/');
+            }
         }
         else {
             toast.error("Password Not Matched!");
@@ -45,9 +48,11 @@ const Register = () => {
         confirmPassRef.current.value = "";
     }
 
+  
+
 
     return (
-        <div className='w-50 mx-auto vh-100'>
+        <div className='w-50 mx-auto h-100'>
             <legend className='text-center'>Registration</legend>
             <div>
                 <p className='text-center'>Already Member? <Button className='btn btn-info py-0'><Link className='text-decoration-none text-dark' to="/login">Login Here</Link> </Button></p>
@@ -65,12 +70,12 @@ const Register = () => {
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control ref={passwordRef} type="password" className='shadow-none' placeholder="Password" required />
+                    <Form.Control ref={passwordRef} type="password" className='shadow-none' placeholder="Password" minLength="6" required />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword2">
                     <Form.Label>Confirm Password</Form.Label>
-                    <Form.Control ref={confirmPassRef} type="password" className='shadow-none' placeholder="Confirm Password" required />
+                    <Form.Control ref={confirmPassRef} type="password" className='shadow-none' placeholder="Confirm Password"  minLength="6" required />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
