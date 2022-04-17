@@ -50,7 +50,7 @@ const Register = () => {
         <div className='w-50 mx-auto'>
             <legend className='text-center'>Registration</legend>
             <div>
-                <p className='text-center'>Already Member? <span className='text-primary '><Link to="/login">Login Here</Link> </span></p>
+                <p className='text-center'>Already Member? <Button className='btn btn-info py-0'><Link className='text-decoration-none text-dark' to="/login">Login Here</Link> </Button></p>
             </div>
             <Form onSubmit={handleRegForm}>
                 <Form.Group className="mb-3" controlId="formBasicName">

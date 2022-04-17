@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "name": "Basic Wild Photograpy",
+        "img": "https://i.ibb.co/y6DTFsp/p1.jpg",
+        "price": 5000,
+        "description": "The students will explore a wide range of relevant contemporary theories  which is designed to stimulate a critically engaged practice to prepare  a range of related careers. "
+    },
+    {
+        "id": 2,
+        "name": "Framming and Composition Masterclass",
+        "img": "https://i.ibb.co/vBGBpnr/p3.jpg",
+        "price": 10000,
+        "description": "To show how an understanding of light and composition is worth more to you than a whole bagful of camera accessorie.To show how to take better photos in specific environments"
+    },
+    {
+        "id": 3,
+        "name": "Professional Wild Photograpy",
+        "img": "https://i.ibb.co/vBGBpnr/p3.jpg",
+        "price": 15000,
+        "description": "The Foundation course in Photography places emphasis on more hands-on experience. A wide variety of photography styles are explored, such as Street, Studio, Landscape, and Portrait to mention a few."
+    }
+]

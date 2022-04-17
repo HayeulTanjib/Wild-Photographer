@@ -1,13 +1,17 @@
 import React, { useRef } from 'react';
 import { Form, Button } from 'react-bootstrap';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../Firebase/firebase.config';
 import SocialLogin from './SocialLogin/SocialLogin';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
 
     const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth);
+    const [sendPasswordResetEmail, sending, passwordResetError] = useSendPasswordResetEmail(auth);
+
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -15,6 +19,7 @@ const Login = () => {
     if(user){
         navigate(from, { replace: true });
     }
+  
 
     const emailRef = useRef('');
     const passwordRef = useRef(''); 
@@ -24,15 +29,27 @@ const Login = () => {
 
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
-
-        await signInWithEmailAndPassword(email, password)
+        await signInWithEmailAndPassword(email, password)         
 
         //clear input
         emailRef.current.value = "";
         passwordRef.current.value = "";
     }
 
-   
+
+    //Password Reset handler
+   const handlePasswordReset = async () => {
+    const email = emailRef.current.value;
+    if(email){
+        await sendPasswordResetEmail(email);
+        toast.success("Password Reset Email Sent")
+    }
+    else{
+        toast.error("Enter Your Email First")
+    }
+    
+   }
+
 
 
 
@@ -50,17 +67,19 @@ const Login = () => {
                         <Form.Label>Password</Form.Label>
                         <Form.Control ref={passwordRef} type="password" className='shadow-none' placeholder="Password" required/>
                     </Form.Group>
-                    <div>
-                        <p>Not Member Yet? <span className='text-primary '><Link to="/register">Register Here</Link> </span></p>
-                    </div>
                     <>
                     {error ? <p className='text-danger'>{error.message}</p> : "" }
                     </>
                     <Button variant="primary" type="submit">
                         Login
                     </Button>
+                    <div className='mt-4'>
+                        <p>Not Member Yet? <button className='py-0 btn btn-info'><Link className='text-decoration-none text-dark' to="/register">Register Here</Link> </button></p>
+                        <p>Forgot Password? <button onClick={handlePasswordReset} className='py-0 btn btn-warning'>Reset Password</button></p>
+                    </div>
                 </Form>
                 <SocialLogin/>
+                <ToastContainer/>
             </div>
         </div>
     );
