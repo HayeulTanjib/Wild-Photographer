@@ -8,6 +8,7 @@ import Footer from './Components/Shared/Footer/Footer';
 import Login from './Components/Authentication/Login/Login';
 import Register from './Components/Authentication/Register/Register';
 import RequireAuth from './RequireAuth/RequireAuth';
+import NotFound from './Components/Pages/NotFound/NotFound';
 
 
 
@@ -30,6 +31,7 @@ function App() {
 
         <Route path='/login' element={<Login/>}></Route>
         <Route path="/register" element={<Register/>}></Route>
+        <Route path='*' element={<NotFound/>}></Route>
       </Routes>
       </div>
       <Footer/>
